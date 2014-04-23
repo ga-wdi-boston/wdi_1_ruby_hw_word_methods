@@ -15,9 +15,10 @@ end
 # Method that takes a string and returns an array of all unique words in it,
 # ignoring punctuation and capitalization differences.
 
-# def Method_2
-
-# end
+def split_string_to_array_unique(file)
+  result = (file.split( )).uniq
+  return result
+end
 
 # # Method that counts how many words are in a string. This method should also
 # # provide the option to count unique words instead of total words.
