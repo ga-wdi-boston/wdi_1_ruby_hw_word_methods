@@ -23,9 +23,10 @@ end
 # # Method that counts how many words are in a string. This method should also
 # # provide the option to count unique words instead of total words.
 
-# def Method_3
-
-# end
+def count_words_in_string(file)
+  result = (file.split( )).count
+  return result
+end
 
 # # Method that takes a string and returns a hash where the keys are
 # # normalized words, and the values are integers representing how many
