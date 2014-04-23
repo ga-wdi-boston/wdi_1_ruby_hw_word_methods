@@ -15,8 +15,8 @@ def find_unique_words(string)
   words.uniq.sort
 end
 
-# turns string to array, then get th elength of the array.
-#specifies is looking for only unique values (.uniq)
+# turns string to array, then get the length of the array.
+# specifies if looking for only unique values (.uniq)
 def word_count(string, count_unique = false)
   countable_string = string.downcase.split
   if count_unique
@@ -26,5 +26,14 @@ def word_count(string, count_unique = false)
   end
 end
 
+# iterates through array of words and assignes a number within a hash
+def word_occurences(string)
+  word_hash = Hash.new(0)
+  words = string.downcase.split
+  words.each do |word|
+    word_hash[word] += 1
+  end
+  word_hash
+end
 
-puts word_count(sample_text)
+puts word_occurences(sample_text)
