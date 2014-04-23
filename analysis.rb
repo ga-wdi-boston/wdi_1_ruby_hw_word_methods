@@ -5,4 +5,9 @@ def normalize(text)
   text.downcase.split(/\W+/)
 end
 
+def unique(text)
+  normalize(text).uniq
+end
+
+
 
