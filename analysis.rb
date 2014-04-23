@@ -1,3 +1,5 @@
+require 'pry'
+
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
 
@@ -13,4 +15,16 @@ def find_unique_words(string)
   words.uniq.sort
 end
 
-# puts find_unique_words(sample_text)
+# turns string to array, then get th elength of the array.
+#specifies is looking for only unique values (.uniq)
+def word_count(string, count_unique = false)
+  countable_string = string.downcase.split
+  if count_unique
+    countable_string.uniq.length
+  else
+    countable_string.length
+  end
+end
+
+
+puts word_count(sample_text)
