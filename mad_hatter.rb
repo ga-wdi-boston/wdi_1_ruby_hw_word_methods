@@ -4,7 +4,7 @@ require 'pry'
 sample_text = File.read('sample.txt')
 
 # Method to split a string into an array of words -- all lowercase and scrubbed of punctuation
-def scrub_and_lowercase_text(text)
+def scrub_and_lowercase(text)
   words = []
   lowercase_text = text.downcase
   words = lowercase_text.split(/\W+/)
@@ -12,15 +12,19 @@ end
 
 # Method takes string and returns array of unique words in it ignores punctuation and capitalization
 def list_unique_words(text)
-  text.uniq
+  unique = []
+  unique = scrub_and_lowercase(text).uniq
 end
 
 # Method counts how many words in a string and gives option of counting unique or total words
 def count_words(text, unique_or_total)
-  if unique_or_total == total
-    scrub_and_lowercase_text(text).length
+  split_string = []
+  if unique_or_total == 'total'
+    split_string = scrub_and_lowercase(text)
+    split_string.length
   else
-    list_unique_words(scrub_and_lowercase_text(text)).length
+    split_string = list_unique_words(text)
+    split_string.length
   end
 end
 
@@ -31,7 +35,9 @@ end
 
 
 # Method finds length of longest word in a string and returns array of unique words in that string with the same length
+binded pry
 
-
-puts scrub_and_lowercase_text(sample_text)
-
+# puts scrub_and_lowercase_text(sample_text)
+# puts list_unique_words(sample_text)
+puts count_words(sample_text, 'total')
+puts count_words(sample_text, 'unique')
