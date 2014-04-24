@@ -29,6 +29,17 @@ def word_count(passage, unique: false)
   !unique ? strip_text(passage).count : strip_text_unique(passage).count
 end
 
+#Question4
+# this initializes a new hash at 0, for each object in the array, 1 gets added
+def make_array_with_count(passage)
+  array_from_excerpt = strip_text(passage)
+  names_and_counts = Hash.new 0
+  array_from_excerpt.each do |word|
+    names_and_counts[word] += 1
+  end
+  names_and_counts # must have the last line return the array!
+end
+
 
 binding.pry
 
