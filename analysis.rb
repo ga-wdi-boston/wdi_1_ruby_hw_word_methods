@@ -23,8 +23,12 @@ end
 # # Method that counts how many words are in a string. This method should also
 # # provide the option to count unique words instead of total words.
 
-def count_words_in_string(file)
-  result = (file.split( )).count
+def count_words_in_string(file, type: :unique)
+  if type == :unique
+    result = ((file.split( )).uniq).count
+  else
+    result = (file.split( )).count
+  end
   return result
 end
 
@@ -32,8 +36,22 @@ end
 # # normalized words, and the values are integers representing how many
 # # times that word occurs in the string.
 
-# def Method_4
-
+# def word_number_of_appearances(hash = {words, appearances})
+#     # Defines sample_text local variable and directs to the text in sample.txt file
+#     sample_text = File.read('sample.txt')
+#     # Defines local variable for key needed for result hash output
+#     words = split_string_to_array_unique(sample_text)
+#     #Defines local variable for value needed for result hash output
+#     appearances = (count_words_in_string(sample_text)).to_i
+#     result = {
+#         #Needs to call/pull each word from split_string_to_array_unique method
+#         # and each number from count_words_in_string method
+#         # needs to call the each value for each of the two arrays before moving
+#         # to the next instance
+#         # match them by index!
+#         :words => appearances
+#         }
+#     return result
 # end
 
 # # Method that finds the most common word in a string that is longer than
