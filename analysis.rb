@@ -10,7 +10,7 @@ end
 
 # iterates over array to find frequency of word
 def find_unique_words(string)
-  string_no_special = string.gsub(/[\,\.]/, ' ')
+  string_no_special = string.gsub(/[\,\.\:\)\()]/, ' ')
   words = string_no_special.downcase.split
   words.uniq.sort
 end
@@ -36,4 +36,21 @@ def word_occurences(string)
   word_hash
 end
 
-puts word_occurences(sample_text)
+# currently collects all strings that match the correct length threshold, does not
+#provide most common string....
+def most_common_word(string, length_threshold = 3)
+  common_word = []
+  searchable_array = string.downcase.split
+  searchable_array.each do |word|
+    if word.length > length_threshold
+      greater_than_threshold << word
+    end
+    greater_than_threshold.group_by
+      word
+  end
+  binding.pry
+end
+
+def
+
+puts most_common_word(sample_text, length_threshold = 4)
