@@ -40,13 +40,17 @@ end
 #provide most common string....
 def most_common_word(string, length_threshold = 3)
   common_word = []
+  word_hash = Hash.new(0)
   searchable_array = string.downcase.split
   searchable_array.each do |word|
     if word.length > length_threshold
       greater_than_threshold << word
     end
-    greater_than_threshold.group_by
-      word
+    greater_than_threshold.each do |word|
+      word_hash[word] += 1
+    end
+    word_hash.sort
+    #return value with highest key/value value number
   end
   binding.pry
 end
