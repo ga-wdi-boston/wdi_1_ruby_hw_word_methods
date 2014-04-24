@@ -20,7 +20,16 @@ def count_words(text, unique: false)
   end
 end
 
+def count_occurences(text)
+  words = normalize(text)
+  num_of_occurences = Hash.new(0)
+  words.each do |word|
+  num_of_occurences[word] += 1
+  end
+  return num_of_occurences
+end
 
+puts count_occurences(sample_text)
 
 
 
