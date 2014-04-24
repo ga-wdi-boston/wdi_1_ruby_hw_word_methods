@@ -15,12 +15,24 @@ def strip_text(passage)
 end
 
 
-#Question1
+#Question2
+# the uniq function can just build off of the previous question...
+
+def strip_text_unique(passage)
+  strip_text(passage).uniq
+end
 
 
+#Question3
+# in order to invoke only the unique word count, you must write 'unique: true'
+def word_count(passage, unique: false)
+  !unique ? strip_text(passage).count : strip_text_unique(passage).count
+end
 
 
 binding.pry
+
+
 
 
 
