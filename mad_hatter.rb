@@ -28,16 +28,40 @@ def count_words(text, unique_or_total)
   end
 end
 
-# Method takes a string and returns hash with keys representing normalized words and values of how many occurances
+# Method takes a string and returns hash with keys representing normalized words and values of how many occurences
+def find_occurence(text)
+  all_words = []
+  unique_words = []
+  count = 0
+  occurence = {}
+
+  all_words = scrub_and_lowercase(text)
+  unique_words = list_unique_words(text)
+
+  unique_words.each do |unique_word|
+    all_words.each do |all_word|
+      if all_word == unique_word
+        count += 1
+      end
+      occurence[unique_word.to_sym] = count
+    end
+    count = 0
+  end
+  return occurence
+end
+
+
 
 
 # Method finds most common word in a string longer than particular length with default of 3
 
 
 # Method finds length of longest word in a string and returns array of unique words in that string with the same length
-binded pry
+
+
 
 # puts scrub_and_lowercase_text(sample_text)
 # puts list_unique_words(sample_text)
-puts count_words(sample_text, 'total')
-puts count_words(sample_text, 'unique')
+#puts count_words(sample_text, 'total')
+#puts count_words(sample_text, 'unique')
+puts find_occurence(sample_text)
