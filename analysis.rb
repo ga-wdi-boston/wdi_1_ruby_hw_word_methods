@@ -1,4 +1,4 @@
-require 'pry'
+#require 'pry'
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
 
@@ -41,12 +41,20 @@ def make_hash_with_count(passage)
 end
 
 #Question5
-def hash_sort(passage, minlength: 3)
+def hash_most_common(passage, minlength: 3)#minlength is 3, but can be changed by user
   hashtest = make_hash_with_count(passage)
   hashtest.delete_if {|k,v| k.length < minlength}# comparison can act on array
   hashtest.sort_by {|k,v| v}.last# |key,value| what sorted by (default is asc) and last item
 end
-binding.pry
+
+#Question6
+def hash_longest_key(passage)
+  hashtest = make_hash_with_count(passage)
+  longest_word_array = hashtest.sort_by {|k,v| -k.length}# |key,value| what sorted by (default is asc) and last item
+  #cannot find a way to get my delete_if statement to understand the key lengths
+end
+
+#binding.pry
 
 
 
