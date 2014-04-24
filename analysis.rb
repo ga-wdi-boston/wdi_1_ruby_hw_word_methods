@@ -42,6 +42,14 @@ def most_common_word(text, min_word_length = 3)
    return grouped_by_num_of_occurences[grouped_by_num_of_occurences.keys.sort.last]
 end
 
+def longest_word(text)
+  words = unique(text)
+  grouped_by_length = words.group_by{|word| word.length}
+
+  return grouped_by_length[grouped_by_length.keys.sort.last]
+end
+
+
 
 
 
