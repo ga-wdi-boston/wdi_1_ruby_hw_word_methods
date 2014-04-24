@@ -1,4 +1,6 @@
 require 'pry'
+require 'net/http'
+require 'uri'
 
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
@@ -92,12 +94,17 @@ def number_of_longest_words(text)
   return unique_longest_words
 end
 
+def white_rabbit(url)
+  Net::HTTP.get(URI.parse(url))
+end
+
 # puts scrub_and_lowercase_text(sample_text)
 # puts list_unique_words(sample_text)
-#puts count_words(sample_text, 'total')
-#puts count_words(sample_text, 'unique')
-#puts find_occurence(sample_text)
-#puts long_word_occurence(sample_text)
-#puts long_word_occurence(sample_text, 6)
-#puts long_word_occurence(sample_text, 100)
-#puts number_of_longest_words(sample_text)
+# puts count_words(sample_text, 'total')
+# puts count_words(sample_text, 'unique')
+# puts find_occurence(sample_text)
+# puts long_word_occurence(sample_text)
+# puts long_word_occurence(sample_text, 6)
+# puts long_word_occurence(sample_text, 100)
+# puts number_of_longest_words(sample_text)
+# puts white_rabbit('http://www.wikipedia.com')
