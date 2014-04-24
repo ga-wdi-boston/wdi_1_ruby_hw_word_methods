@@ -50,11 +50,23 @@ def find_occurence(text)
   return occurence
 end
 
-
-
-
 # Method finds most common word in a string longer than particular length with default of 3
+def long_word_occurence(text, longer_than = 3)
+  most_common = 0
+  most_common_word = nil
+  occurence = {}
+  occurence = find_occurence(text)
 
+  occurence.each do |key, value|
+    if key.to_s.length > longer_than
+      if value > most_common
+        most_common = value
+        most_common_word = key.to_s
+      end
+    end
+  end
+  return most_common_word
+end
 
 # Method finds length of longest word in a string and returns array of unique words in that string with the same length
 
@@ -64,4 +76,7 @@ end
 # puts list_unique_words(sample_text)
 #puts count_words(sample_text, 'total')
 #puts count_words(sample_text, 'unique')
-puts find_occurence(sample_text)
+#puts find_occurence(sample_text)
+puts long_word_occurence(sample_text)
+puts long_word_occurence(sample_text, 6)
+puts long_word_occurence(sample_text, 100)
