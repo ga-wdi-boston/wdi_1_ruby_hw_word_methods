@@ -1,6 +1,6 @@
 # This will give you the contents of the `sample.txt` file as one big string
 
-sample_text = File.read('sample_copy.txt')
+sample_text = File.read('sample.txt')
 
 def normalize(text)
   text.downcase.split(/\W+/)
@@ -29,7 +29,20 @@ def count_occurences(text)
   return num_of_occurences
 end
 
-puts count_occurences(sample_text)
+# Returns the most common word of words greater than a given length
+# A tie will produce a list of the words that tied.
+def most_common_word(text, min_word_length = 3)
+  occurences = count_occurences(text)
+  grouped_by_num_of_occurences = Hash.new([])
+  occurences.each do |word, num_of_occurences|
+    if word.length >= min_word_length
+    grouped_by_num_of_occurences[num_of_occurences] += [word]
+    end
+  end
+   return grouped_by_num_of_occurences[grouped_by_num_of_occurences.keys.sort.last]
+end
+
+
 
 
 
