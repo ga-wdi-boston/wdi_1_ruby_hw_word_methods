@@ -69,14 +69,35 @@ def long_word_occurence(text, longer_than = 3)
 end
 
 # Method finds length of longest word in a string and returns array of unique words in that string with the same length
+def number_of_longest_words(text)
+  longest_word = ""
+  longest_word_length = 0
+  unique_longest_words = []
+  all_words = []
 
+  all_words = scrub_and_lowercase(text)
 
+  all_words.each do |word|
+    if word.length > longest_word_length
+      longest_word = word
+      longest_word_length = word.length
+    end
+  end
+
+  all_words.each do |word|
+    if word.length == longest_word_length
+      unique_longest_words << word
+    end
+  end
+  return unique_longest_words
+end
 
 # puts scrub_and_lowercase_text(sample_text)
 # puts list_unique_words(sample_text)
 #puts count_words(sample_text, 'total')
 #puts count_words(sample_text, 'unique')
 #puts find_occurence(sample_text)
-puts long_word_occurence(sample_text)
-puts long_word_occurence(sample_text, 6)
-puts long_word_occurence(sample_text, 100)
+#puts long_word_occurence(sample_text)
+#puts long_word_occurence(sample_text, 6)
+#puts long_word_occurence(sample_text, 100)
+#puts number_of_longest_words(sample_text)
