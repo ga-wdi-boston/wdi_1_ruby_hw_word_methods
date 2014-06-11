@@ -1,3 +1,4 @@
+require 'pry'
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
 
@@ -49,9 +50,20 @@ def each_word_count(text)
 
 end
 
-puts each_word_count sample_text
-
 # 5. Method that finds the most common word in a string that is longer than a particular "length threshold". The threshold should be optional, and default to 3 characters (i.e. words of 3 characters or less will not be considered). It's up to you how to handle multiple words being "tied" for most common.
 
+def most_common(text, too_short: 3)
+  long_words = each_word_count(text).select do |word, count|
+    word.length > too_short
+  end
 
-# * Write a method that finds the length of the longest word in a string, and returns an array of all unique words in the string that are that length.
+  highest_frequency = long_words.values.max
+  longest_words = long_words.select do |word, count|
+    count == highest_frequency
+  end
+end
+
+binding.pry
+
+# * Write a method that finds the length of the longest word in a string,
+# returns an array of all unique words in the string that are that length.
