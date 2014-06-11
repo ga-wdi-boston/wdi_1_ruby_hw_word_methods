@@ -24,17 +24,31 @@ end
 
 def individual_word_counts(text)
   word_counts = {}
-  unique_words(text).each do |i|
+  unique_words(text).each do |word|
     count = 0
-    normalize(text).scan(i) { |x| count += 1 }
-    word_counts[i] = count
+    normalize(text).scan(word) { |not_used| count += 1 }
+    word_counts[word] = count
   end
   word_counts
 end
 
+def most_common_word(text, min_length: 3)
+  word_counts = individual_word_counts(text)
+  most_common = nil
+  word_count = 0
 
+  word_counts.each do |word, count|
+    if count > word_count && word.length > min_length
+      most_common = word
+      word_count = count
+    end
+  end
+
+  most_common
+end
 
 puts unique_words(sample_text2)
 puts word_count(sample_text2, unique: true)
-puts individual_word_counts(sample_text)
+puts individual_word_counts(sample_text2)
+puts most_common_word(sample_text2, min_length: 2)
 
