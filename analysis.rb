@@ -33,14 +33,14 @@ end
 
 def each_word_count(text)
   word_counts = {}
-  unique_words(text).each do |word|
-    word_counts[word] = 0
-  end
   normalize(text).each do |word|
+    word_counts[word] = 0 if !word_counts[word]
     word_counts[word] += 1
   end
   word_counts
 end
+
+puts each_word_count(sample_text)
 
 # 5. Find the most common word in a string that is longer than some threshold
 # The threshold should be optional, and default to 3 characters
