@@ -5,33 +5,37 @@ sample_text = File.read('sample.txt')
 # takes whole sample text,
 # returns array of words with no punctuation or spaces
 def make_simple (whole_text)
-  return # array of strings
+  whole_text.gsub(/[.!?"')(:;,-]/, '').downcase.split
+  # return array of strings
 end
 
 # method for finding unique words
 # takes a String
 # returns an array of all of it's unique words
 def find_unique (whole_text)
-  return # array of strings
+  # return array of strings
 end
 
 # method for counting how many words are in a string
 # takes *option* to count unique words instead of total words returns count
 # returns an int for the count
-def get_wordcount (unique: false)
-  return # an int
+def get_wordcount (whole_text, unique: false)
+  whole_text.scan(/\w+/){|w| }
+  # return an int
 end
 
 # method for counting number of occurences of a word in a string
 # takes a string and
 # returns a hash where the keys are normalized words and the values are integers representing the number of occurences.
 def get_occurence_count (whole_text)
-  return # a hash (keys are strings, vals are ints)
+  # return a hash (keys are strings, vals are ints)
 end
 
 # method for finding most common word in a string longer than threshold
 # takes an option (default 3) of min letters
 # returns the most common word
 def most_common (letter_length: 3)
-  return #string
+  # return string
 end
+
+puts make_simple(sample_text)
