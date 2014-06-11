@@ -4,6 +4,16 @@ sample_text = File.read('sample.txt')
 
 # 1. Method that splits a string (e.g. the text from `sample.txt`) into an array of normalized words. "Normalized" here means that the words should be all lowercase and scrubbed of any punctuation such as periods or parentheses.
 
+def normalize(text)
+  text.gsub!(" '"," ").gsub!("' "," ").
+  text.delete! "." "," "(" ")" ";" "!" ":" "?" "\""
+
+  text.split.map do |word|
+    word = word.downcase
+  end
+end
+
+puts normalize sample_text
 
 # 2. Method that takes a string and returns an array of all *unique* words in it, ignoring punctuation and capitalization differences.
 
