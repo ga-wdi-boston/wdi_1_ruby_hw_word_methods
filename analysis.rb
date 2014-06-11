@@ -59,5 +59,10 @@ end
 # * Write a method that finds the length of the longest word in a string,
 # returns an array of all unique words in the string that are that length.
 
-def longest_words
+def longest_words(text)
+  greatest_length = unique_words(text).map { |word| word.length }.max
+  unique_words(text).select do |word|
+    word.length == greatest_length
+  end
 end
+
