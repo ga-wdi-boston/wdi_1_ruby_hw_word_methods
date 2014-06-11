@@ -2,28 +2,38 @@
 sample_text = File.read('sample.txt')
 
 
-# 1. Method that splits a string (e.g. the text from `sample.txt`) into an array of normalized words. "Normalized" here means that the words should be all lowercase and scrubbed of any punctuation such as periods or parentheses.
+# 1. Method that splits a string into an array of normalized words.
+# "Normalized" here means that the words should be all lowercase
+# and scrubbed of any punctuation such as periods or parentheses.
 
 def normalize(text)
-  text.gsub!(" '"," ").gsub!("' "," ")
-  text.delete! "." "," "(" ")" ";" "!" ":" "?" "\""
+  normalized = text.gsub(" '"," ").gsub("' "," ")
+  normalized.delete! "." "," "(" ")" ";" "!" ":" "?" "\""
 
-  text.split.map do |word|
+  normalized.split.map do |word|
     word = word.downcase
   end
 end
 
-# 2. Method that takes a string and returns an array of all *unique* words in it, ignoring punctuation and capitalization differences.
+# 2. Method that takes a string and returns an array of unique* words
+# ignoring punctuation and capitalization differences.
 
 def unique_words(text)
   normalize(text).uniq
 end
 
-puts unique_words sample_text
-
-
 # 3. Method that counts how many words are in a string. This method should also provide the *option* to count unique words instead of total words.
 
+def word_count(text, unique: false)
+  if unique == true
+    unique_words(text).length
+  else
+    normalize(text).length
+  end
+end
+
+puts word_count sample_text
+puts word_count(sample_text, unique: true)
 
 # 4. Method that takes a string and returns a hash where the keys are normalized words, and the values are integers representing how many times that word occurs in the string.
 
