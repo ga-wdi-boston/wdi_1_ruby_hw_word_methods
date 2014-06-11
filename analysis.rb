@@ -40,8 +40,6 @@ def each_word_count(text)
   word_counts
 end
 
-puts each_word_count(sample_text)
-
 # 5. Find the most common word in a string that is longer than some threshold
 # The threshold should be optional, and default to 3 characters
 
@@ -50,9 +48,8 @@ def most_common(text, too_short: 3)
     word.length > too_short
   end
 
-  highest_frequency = long_words.values.max
-  long_words.select! do |word, count|
-    count == highest_frequency
+  long_words.select do |word, count|
+    count == long_words.values.max
   end
 end
 
