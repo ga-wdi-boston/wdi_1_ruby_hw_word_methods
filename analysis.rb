@@ -8,10 +8,18 @@ def normalize(text)
   text.downcase.gsub(/[^a-z ]/, '')
 end
 
-def remove_duplicate_words(text)
+def unique_words(text)
   words = normalize(text).split
   words.uniq
 end
 
-puts remove_duplicate_words(sample_text2)
+def word_count(text, unique: false)
+  if unique == false
+    normalize(text).split.length
+  else
+    unique_words(text).length
+  end
+end
 
+puts unique_words(sample_text2)
+puts word_count(sample_text2, unique: true)
