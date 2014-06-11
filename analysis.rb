@@ -1,9 +1,5 @@
-require 'pry'
-
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
-
-sample_text2 = "The the the the quick! brown brown brown fox fox   ;jumped rumped lumped sumped over the lazy lazy dog dog."
 
 # makes all words lower case and scrubs punctuation
 def normalize(text)
@@ -73,9 +69,9 @@ def longest_words(text)
   words
 end
 
-puts unique_words(sample_text2)
-puts word_count(sample_text2, unique: true)
-puts individual_word_counts(sample_text2)
-puts most_common_word(sample_text2, min_length: 4)
-puts longest_words(sample_text2)
+puts unique_words(sample_text)
+puts word_count(sample_text, unique: true)
+puts individual_word_counts(sample_text)
+puts most_common_word(sample_text, min_length: 4)
+puts longest_words(sample_text)
 
