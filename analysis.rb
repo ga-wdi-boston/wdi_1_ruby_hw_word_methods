@@ -2,8 +2,10 @@
 require 'pry'
 
 def normalize
+  sample_text = []
   sample_text = File.read('sample.txt')
-  sample_text.split
+  str = sample_text
+  str.downcase.gsub /\W+/, ' '
 end
 
 binding.pry
