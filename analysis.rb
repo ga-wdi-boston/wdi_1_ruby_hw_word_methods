@@ -30,15 +30,29 @@ end
 # takes a string
 # returns a hash where the keys are normalized words and the values are integers representing the number of occurences.
 def get_occurence_count (whole_text)
+  words_to_count = find_unique(whole_text)
+  words_for_counting = make_simple(whole_text)
+  occurences = {}
+  count = 0
+
+  (0..(get_wordcount(whole_text, countunique: true))).each do |uniqpos|
+    count = 0
+    (0..(get_wordcount(whole_text, countunique: false))).each do |pos|
+      if words_to_count[uniqpos] == words_for_counting[pos]
+        count += 1
+      end
+      occurences[words_to_count[uniqpos]] = count
+    end
+  end
+  occurences
   # return a hash (keys are strings, vals are ints)
 end
 
 # method for finding most common word in a string longer than threshold
 # takes an option (default 3) of min letters
 # returns the most common word
-def most_common (letter_length: 3)
+def most_common_word (letter_length: 3)
   # return string
 end
 
-puts get_wordcount(sample_text, countunique: true)
-
+puts get_occurence_count(sample_text)
