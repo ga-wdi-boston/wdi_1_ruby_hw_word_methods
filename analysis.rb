@@ -34,10 +34,11 @@ def get_occurence_count (whole_text)
   words_for_counting = make_simple(whole_text)
   occurences = {}
 
+  #ugly so ugly... Can be cleaned up a bunch
   (0..(get_wordcount(whole_text, countunique: true))).each do |uniqpos|
     count = 0
     (0..(get_wordcount(whole_text, countunique: false))).each do |pos|
-       count += 1 if words_to_count[uniqpos] == words_for_counting[pos]
+      count += 1 if words_to_count[uniqpos] == words_for_counting[pos]
       occurences[words_to_count[uniqpos]] = count
     end
   end
@@ -49,8 +50,8 @@ end
 # takes an option (default 3) of min letters
 # returns the most common word
 def most_common_word (whole_text, letter_length: 3)
-  words_by_letters = get_occurence_count(whole_text).select{|k,v| k.size >= letter_length}.max_by{|x,y| y}
-  words_by_letters.flatten.shift.to_s
+  #not pretty.
+  get_occurence_count(whole_text).select{|k,v| k.size>=letter_length}.max_by{|x,y| y}.flatten.shift.to_s
 end
 
-puts most_common_word(sample_text, letter_length: 5)
+
