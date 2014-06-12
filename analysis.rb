@@ -5,19 +5,8 @@ sample_text = File.read('sample.txt')
 
 
 def clean_text(sample_text)
-  stripped_text = sample_text.gsub(",","")
-  stripped_text = stripped_text.gsub("?","")
-  stripped_text = stripped_text.gsub(".","")
-  stripped_text = stripped_text.gsub(";","")
-  stripped_text = stripped_text.gsub(":","")
-  stripped_text = stripped_text.gsub("(","")
-  stripped_text = stripped_text.gsub(")","")
-  stripped_text = stripped_text.gsub('"',"")
-  stripped_text = stripped_text.gsub("'","")
-  stripped_text = stripped_text.gsub("!","")
-  stripped_text = stripped_text.gsub("-","")
-  stripped_text.split.map(&:downcase)
+  sample_text.tr('^A-Za-z0-9 ', '').split.map(&:downcase)
 end
 
-
 puts clean_text(sample_text)
+
