@@ -10,21 +10,11 @@ def remove_duplicates(str)
 end
 
 def count_words(str, unique = false)
-  return normalize(str).length if !unique
-  remove_duplicates(str).length
+  unique ? remove_duplicates(str).length : normalize(str).length
 end
 
 def count_occurences_of_words(str)
-  words = {}
-  count = 0
-  normalize(str).each do |word|
-    normalize(str).each do |test|
-      count += 1 if word == test
-    end
-    words[word] = count
-    count = 0
-  end
-  words
+  Hash[remove_duplicates(str).map {|word| [word, normalize(str).count(word)]}]
 end
 
 def most_common_word(str, min_length = 3)
@@ -35,4 +25,3 @@ end
 def words_equal_to_longest(str)
   remove_duplicates(str).group_by(&:size).max.last
 end
-
