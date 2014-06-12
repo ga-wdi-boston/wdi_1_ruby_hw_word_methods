@@ -27,14 +27,12 @@ def count_occurences_of_words(str)
   words
 end
 
-def longest_word(str, min_length = 3)
+def most_common_word(str, min_length = 3)
   words_above_min_length = count_occurences_of_words(str).find_all { |key, val| key.length >= min_length }.to_h
   words_above_min_length.select { |key, val| val == words_above_min_length.values.max}.keys
 end
 
 def words_equal_to_longest(str)
-  remove_duplicates(normalize(str).group_by(&:size).max.last.to_s)
+  remove_duplicates(str).group_by(&:size).max.last
 end
-
-
 
