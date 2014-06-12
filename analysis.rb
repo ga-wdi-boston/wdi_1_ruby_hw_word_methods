@@ -11,11 +11,7 @@ def unique_words(text)
 end
 
 def word_count(text, unique: false)
-  if unique == false
-    normalize(text).split.length
-  else
-    unique_words(text).length
-  end
+  unique ? unique_words(text).length : normalize(text).split.length
 end
 
 def individual_word_counts(text)
@@ -47,15 +43,11 @@ def longest_words(text)
   words = []
 
   unique_words(text).each do |word|
-    if word.length > longest_length
-      longest_length = word.length
-    end
+    longest_length = word.length if word.length > longest_length
   end
 
   unique_words(text).each do |word|
-    if word.length == longest_length
-      words << word
-    end
+    words << word if word.length == longest_length
   end
 
   words
@@ -66,4 +58,3 @@ puts word_count(sample_text, unique: true)
 puts individual_word_counts(sample_text)
 puts most_common_word(sample_text, min_length: 4)
 puts longest_words(sample_text)
-
