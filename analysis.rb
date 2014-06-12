@@ -21,7 +21,6 @@ end
 #   - create set from array of all words
 def unique_words(text)
   all_words = normalized_words(text).uniq
-  #all_words & all_words
 end
 
 # Find number of words in text
