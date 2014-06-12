@@ -52,10 +52,10 @@ end
 # takes an option (default 3) of min letters
 # returns the most common word
 def most_common_word (whole_text, letter_length: 3)
-  words = get_occurence_count(whole_text).select{|word, count| count > letter_length}
-  longest = words.max_by{|k,v| v}
+  words = get_occurence_count(whole_text).max_by{|k,v| v}
 
+  puts words
   # return string
 end
 
-puts most_common_word(sample_text, letter_length: 5)
+puts most_common_word(sample_text)
