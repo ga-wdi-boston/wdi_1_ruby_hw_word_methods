@@ -7,8 +7,29 @@
 
 sample_text = File.read('sample.txt')
 
+#TEXT = sample_text
+
 def normalize(text)
-  text.downcase.gsub(/[^a-z0-9\s]/i, '').split
+  text.downcase.gsub("'","").gsub(/[^a-z ]/, ' ').split
 end
 
-puts normalize(sample_text)
+#puts normalize(sample_text)
+
+
+def unique_words(text)
+  normalize(text).uniq
+end
+
+#puts unique_words(sample_text)
+
+def word_count(text, unique: false)
+  unique ? unique_words(text).count : normalize(text).count
+end
+puts word_count(sample_text, unique: true)
+
+
+#Method that takes a string and returns a hash
+#where the keys are normalized words,
+#and the values are integers representing how many times that word
+#occurs in the string.
+
