@@ -51,8 +51,11 @@ end
 # method for finding most common word in a string longer than threshold
 # takes an option (default 3) of min letters
 # returns the most common word
-def most_common_word (letter_length: 3)
+def most_common_word (whole_text, letter_length: 3)
+  words = get_occurence_count(whole_text).select{|word, count| count > letter_length}
+  longest = words.max_by{|k,v| v}
+
   # return string
 end
 
-puts get_occurence_count(sample_text)
+puts most_common_word(sample_text, letter_length: 5)
