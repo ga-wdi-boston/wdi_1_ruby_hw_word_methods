@@ -3,7 +3,7 @@ sample_text = File.read('sample.txt')
 
 # split and normalise text
 def split_normalise(text)
-  text.downcase.gsub(/[^a-z]/, '').split
+  text.downcase.gsub(/[^a-z]/, ' ').split
 end
 
 puts split_normalise(sample_text)
