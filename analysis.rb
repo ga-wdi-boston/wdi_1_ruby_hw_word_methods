@@ -13,16 +13,15 @@ end
 
 puts normalize(test)
 
-#Method 2 to map only unique words to a new array - not yet working
+#Method 2 to map only unique words to a new array
 def unique(text)
   normalized_text = normalize(text)
-  unique_array = []
-  normalized_text.map! {|word| word unless unique_array.include?(word)}
+  unique_array = normalized_text.uniq
 end
 
 puts unique(test)
 
-#Method 3 counter - working for regular string of text
+#Method 3 counter
 def word_count(text, unique: false)
   normalized_text = normalize(text)
   unique_text = unique(text)
