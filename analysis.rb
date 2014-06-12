@@ -34,4 +34,15 @@ end
 
 puts word_count(test, unique: true)
 
+#Method 4 - instances of each word
+def word_instances(text)
+  normalized_text = normalize(text)
+  instances = Hash.new(0)
+  normalized_text.each do |word|
+    instances[word] += 1
+  end
+  instances
+end
+
+puts word_instances(test)
 
