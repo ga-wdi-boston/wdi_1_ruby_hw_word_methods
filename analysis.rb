@@ -29,12 +29,6 @@ puts word_count(sample_text, unique: true)
 # method for frequency of words in a hash
 def word_freq(text)
   frequency = {}
-  unique_words(text).each do |word|
-    frequency[word] = 0 if !frequency[word]
-    frequency[word] += 1
-  end
-  frequency
-end
 
 
 puts word_freq(sample_text)
@@ -42,9 +36,9 @@ puts word_freq(sample_text)
 
 # method to find most common words in a string longer than a threshold
 
-def com_words(text, min: 3)
-  freq = word_freq(text).delete_if { |x, y| x.length <= min}
-  freq.key(freq.values.max)
-end
+#def com_words(text, min: 3)
+#  freq = word_freq(text).delete_if { |x, y| x.length <= min}
+#  freq.key(freq.values.max)
+#end
 
-puts com_words(sample_text, min: 6)
+#puts com_words(sample_text, min: 4)
