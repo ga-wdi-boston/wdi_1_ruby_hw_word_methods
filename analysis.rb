@@ -3,7 +3,7 @@ sample_text = File.read('sample.txt')
 
 # split and normalise text
 def split_normalise(text)
-  text.downcase.gsub(/[^a-z]/, ' ').split
+  text.downcase.gsub(/[^a-z]/, ' ').gsub("'", '').split
 end
 
 puts split_normalise(sample_text)
@@ -16,6 +16,15 @@ end
 puts unique_words(sample_text)
 
 # method for text count
+def word_count(text, unique: false)
+  if unique == false
+    normalise(text).split.count
+  else
+    unique_words(text).count
+  end
+end
+
+puts word_count(sample_text, unique: false)
 
 # method for frequency of words in a hash
 
