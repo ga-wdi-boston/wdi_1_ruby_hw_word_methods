@@ -19,9 +19,19 @@ def word_count(sample_text, options = {})
   clean_text(sample_text).length
   unique ? clean_text(sample_text).uniq.length : clean_text(sample_text).length
 end
+
 #Method that takes a string and returns a hash where the keys are normalized words, and the values are integers representing how many times that word occurs in the string.
 def word_score(sample_text)
+  word_score = Hash.new(0)
+
+  clean_text(sample_text).each do |v|
+    word_score[v] +=1
+  end
+
+  word_score.each do |k, v|
+  end
 end
+
 #Method that finds the most common word in a string that is longer than a particular "length threshold". The threshold should be optional, and default to 3 characters (i.e. words of 3 characters or less will not be considered). It's up to you how to handle multiple words being "tied" for most common.
 def popular_long_words(sample_text)
 end
@@ -41,9 +51,14 @@ puts "Word Count"
 puts
 puts "All words:"
 puts word_count(sample_text, unique: false)
+puts
 puts "Unique words:"
 puts word_count(sample_text, unique: true)
 puts
 puts "---------------------------------------------------"
+puts "Word Score"
+puts
 puts word_score(sample_text)
+puts
+puts "---------------------------------------------------"
 
