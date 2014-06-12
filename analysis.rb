@@ -43,6 +43,11 @@ puts word_freq(sample_text)
 
 
 # method to find most common words in a string longer than a threshold
+def most_com_word(text, min: 3)
+  freq = word_freq(text).delete_if { |x, y| x.length} <= min}
+end
+
+puts most_com_word(sample_text, min: 4)
 
 #def com_words(text, min: 3)
 #  freq = word_freq(text).delete_if { |x, y| x.length <= min}
