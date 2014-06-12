@@ -36,6 +36,23 @@ def alice_count_words_unique_optional(text, unique: 'no')
   end
 end
 
-puts alice_count_words_unique_optional(sample_text, unique: request_unique)
+# puts alice_count_words_unique_optional(sample_text, unique: request_unique)
+
+## QUESTION 4
+# take a string and return a hash where the keys are normalized words, and the
+# values are integers representing how many times that word occurs in the string
+
+def alice_word_count_hash(text)
+  count_hash = Hash.new(0)
+  keys = alice_normalize(text)
+  keys.each do |word|
+    count_hash[word] += 1
+  end
+
+  count_hash
+end
+
+puts alice_word_count_hash(sample_text)
+
 
 binding.pry
