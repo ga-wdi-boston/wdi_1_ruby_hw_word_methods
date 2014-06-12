@@ -34,4 +34,16 @@ def most_common_word_over_length_threshold (str, thresh: 3)
   frequencies.key(frequencies.values.max)
 end
 
-puts most_common_word_over_length_threshold(sample_text)
+def all_words_of_max_length(str)
+  max_length = 0
+  arr = []
+  all_unique_words(str).each do |word|
+    if word.length > max_length
+      arr.clear
+      max_length = word.length
+    end
+    arr << word if word.length == max_length
+  end
+  arr
+end
+
