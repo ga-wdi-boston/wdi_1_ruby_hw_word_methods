@@ -13,13 +13,18 @@ def unique(string)
   unique_array = splits(string).uniq
 end
 
-binding.pry
+
+
 # Method that counts how many words are in a string- option to count unique words instead of total words
-def counts
+def counts(string)
   # count how many words there are in a string
+  str_count = string.split.count
+
   # option to count unque words instead of total words- USE unique method you created above.
 
 end
+
+binding.pry
 
 # Method that takes a string and returns a hash where the keys are normalized words, and the values are ints representing how many times that word occurs in the string
 def normal_hash
