@@ -9,4 +9,8 @@ def all_unique_words(str)
   normalize(str).uniq
 end
 
-puts all_unique_words(sample_text)
+def word_count(str, unique: false)
+  unique ? all_unique_words(str).count : str.split(' ').count
+end
+
+puts word_count(sample_text, unique: true)
