@@ -46,3 +46,11 @@ end
 
 puts word_instances(test)
 
+#Method 5 - Most common word in a string
+def most_common(text, length: 3)
+  new_instances = word_instances(text).delete_if {|k,v| k.length < length}
+  new_instances.max_by {|k,v| v}
+end
+
+puts most_common(test)
+
