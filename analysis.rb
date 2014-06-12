@@ -13,30 +13,27 @@ def unique(string)
   unique_array = splits(string).uniq
 end
 
-
-
 # Method that counts how many words are in a string- option to count unique words instead of total words
 def counts(string, uniq_op = false)
   str_count = string.split.count
-  if uniq_op == true
-    unique(string).count
-  else
-    str_count
-  end
-
-
-  # option to count unque words instead of total words- USE unique method you created above.
-
+  uniq_op == true ? unique(string).count : str_count
 end
 
-binding.pry
+
 
 # Method that takes a string and returns a hash where the keys are normalized words, and the values are ints representing how many times that word occurs in the string
-def normal_hash
-  # take a string and return a hash
+def word_hash_count(string)
+  # take a string and turn into an array
+  str_arr = splits(string)
+  count_array = str_arr.group_by { |i| i }.map { |k,v| [k,v.count] }
+  count_hash = Hash[*count_array.flatten]
+
+
   # keys are normalized words
   # values are integers representing how many times that word occurs in the string- USE counts method you created above
 end
+binding.pry
+
 
 # Method that finds the most common word in a string that is longer than a particular "length threshold". The threshold should be optional, and default to 3 chars. How to handle multiple words being 'tied' for most common.
 def most_common
