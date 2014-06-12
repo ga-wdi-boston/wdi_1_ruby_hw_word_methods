@@ -29,10 +29,13 @@ def count_occurences_of_words(str)
   words
 end
 
+def longest_word(str, min_length = 3)
+  words_above_min_length = count_occurences_of_words(str).find_all { |key, val| key.length > min_length }.to_h
+  words_above_min_length.select { |key, val| val == words_above_min_length.values.max}.keys
+end
 
 
-
-str = "Hey! Hey! Hey...There'' Hows hows hows it it' HHH  [][][] going goingg?"
+str = "Hey! Hey! Hey...There'' Hows hows hows hows it it' HHH  [][][] going going going going goingg?"
 puts normalize(str)
 puts
 puts remove_duplicates(str)
