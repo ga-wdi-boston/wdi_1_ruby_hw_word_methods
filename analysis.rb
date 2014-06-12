@@ -13,4 +13,19 @@ def word_count(str, unique: false)
   unique ? all_unique_words(str).count : str.split(' ').count
 end
 
-puts word_count(sample_text, unique: true)
+def word_freq(str)
+  frequencies = {}
+
+  normalize(str).each do |word|
+    if frequencies.key?(word.to_sym)
+      frequencies[word.to_sym] +=1
+    else
+      frequencies[word.to_sym] = 1
+    end
+  end
+
+  frequencies
+end
+
+
+puts word_freq(sample_text)
