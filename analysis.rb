@@ -24,12 +24,13 @@
 sample_text = File.read('sample.txt')
 
 def normalize(text)
-  normalize = []
   # lowercase and remove punctuation then push it into a string.
   # puctuations = [".", "?", "/", "(", ")", ";", ":"]
-  normalize << text.downcase!.gsub(".",'').gsub("?",'').gsub("/",'').gsub("(",'').gsub(")",'').gsub(";",'').gsub(":",'').gsub(",",'').gsub("\"",'').split
-  normalize
+  text.downcase!.gsub(".",'').gsub("?",'').gsub("/",'').gsub("(",'').gsub(")",'').gsub(";",'').gsub(":",'').gsub(",",'').gsub("\"",'').gsub("!",'').gsub("-",'').gsub("'",'').split
 end
 
-puts normalize(sample_text).inspect
+# create array ony with unique words
+def unique_words(text)
+  normalize(text).uniq
+end
 
