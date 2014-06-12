@@ -6,6 +6,7 @@ def normalize(text)
   # lowercase and remove punctuation then push it into a string.
   # puctuations = [".", "?", "/", "(", ")", ";", ":"] #gsub is too long. thinking of ways to loop.
   text.downcase.gsub(".",'').gsub("?",'').gsub("/",'').gsub("(",'').gsub(")",'').gsub(";",'').gsub(":",'').gsub(",",'').gsub("\"",'').gsub("!",'').gsub("-",'').gsub("'",'').split
+  # text.delete! "." "?" "/" "(" ")" ";" ":"
 end
 
 def unique_words(text)
