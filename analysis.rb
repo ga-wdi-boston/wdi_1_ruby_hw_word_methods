@@ -15,31 +15,33 @@ puts normalize(test)
 
 #Method 2 to map only unique words to a new array
 def unique(text)
-  normalized_text = normalize(text)
-  unique_array = normalized_text.uniq
+  normalize(text).uniq
 end
 
 puts unique(test)
 
 #Method 3 counter
 def word_count(text, unique: false)
-  normalized_text = normalize(text)
-  unique_text = unique(text)
-  if unique == false
-    normalized_text.length
-  else
-    unique_text.length
-  end
+  unique ? unique(text).length : normalize(text).length
 end
 
 puts word_count(test, unique: true)
 
 #Method 4 - instances of each word
 def word_instances(text)
-  normalized_text = normalize(text)
   instances = Hash.new(0)
-  normalized_text.each do |word|
+  normalize(text).each do |word|
     instances[word] += 1
+  end
+  instances
+end
+
+#Method 4 - Take 2
+def word_instances(text)
+  instances = Hash.new(0)
+  normalized_words = normalize(text)
+  unique(text).each do |word|
+    instances[word] = normalized_words.count(word)
   end
   instances
 end
@@ -53,4 +55,9 @@ def most_common(text, length: 3)
 end
 
 puts most_common(test)
+
+#Method 6 - Bonus method
+
+def longest_words(text)
+  greatest_length = unique(text).map { |word| word.length}
 
