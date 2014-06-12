@@ -4,3 +4,7 @@ sample_text = File.read('sample.txt')
 # split and normalise text
 
 # method to return unique words
+
+# method for text count
+
+# method
