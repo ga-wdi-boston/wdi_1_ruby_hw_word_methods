@@ -8,6 +8,15 @@ def normalize
   str.downcase.gsub /\W+/, ' '
 end
 
+
+# How can I reference the normalize method in the unique method?
+def unique
+  unique = []
+  sample_text = File.read('sample.txt').split
+  sample_text.uniq
+  unique += sample_text.uniq
+ end
+
 # How can I simplify this?
 # How can I reference the normalize method in the word_count method?
 def word_count
