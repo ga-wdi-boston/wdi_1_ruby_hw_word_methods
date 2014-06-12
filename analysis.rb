@@ -22,12 +22,17 @@ end
 
 puts unique(test)
 
-#Method 3 counter - working for regular string of text - do not have option for unique
-def word_count(text)
+#Method 3 counter - working for regular string of text
+def word_count(text, unique: false)
   normalized_text = normalize(text)
-  count = normalized_text.length
+  unique_text = unique(text)
+  if unique == false
+    normalized_text.length
+  else
+    unique_text.length
+  end
 end
 
-puts word_count(test)
+puts word_count(test, unique: true)
 
 
