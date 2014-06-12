@@ -11,7 +11,7 @@ def unique_words(text)
 end
 
 def word_count(text, unique: false)
-  unique ? unique_words(text).length : normalize(text).split.length
+  unique ? unique_words(text).length : normalize(text).length
 end
 
 def individual_word_counts(text)
