@@ -20,8 +20,8 @@ end
 #   - normalize text
 #   - create set from array of all words
 def unique_words(text)
-  all_words = normalized_words(text)
-  all_words & all_words
+  all_words = normalized_words(text).uniq
+  #all_words & all_words
 end
 
 # Find number of words in text
@@ -41,7 +41,6 @@ def unique_words_with_counts(text)
   Hash[words_set.zip(counts)]
 end
 
-puts unique_words_with_counts(sample_text)
 # Find most common word longer than an optional threshhold (default 3)
 #    - use hash to find most occurances
 #    - a tie defaults to whichever word appears first
