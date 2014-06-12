@@ -50,9 +50,7 @@ end
 # returns the most common word
 def most_common_word (whole_text, letter_length: 3)
   words_by_letters = get_occurence_count(whole_text).select{|k,v| k.size >= letter_length}.max_by{|x,y| y}
-
-  puts words_by_letters
-  # return string
+  words_by_letters.flatten.shift.to_s
 end
 
 puts most_common_word(sample_text, letter_length: 5)
