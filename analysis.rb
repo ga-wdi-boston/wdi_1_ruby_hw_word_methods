@@ -8,8 +8,11 @@ sample_text = File.read('sample.txt')
 #   - delete non-alpha chars
 #   - join chars back into words
 
-normalized_words = sample_text.split.map { |word|
-  word.chars.delete_if { |c| /[[:alpha:]]/.match(c).nil? }.join.downcase }
+def normalise_text(text)
+  text.split.map { |word| word.chars.
+    delete_if{ |c| /[[:alpha:]]/.match(c).nil? }.join.downcase }
+end
 
+normalised = normalise_text(sample_text)
 
 binding pry
