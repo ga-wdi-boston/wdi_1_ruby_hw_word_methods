@@ -21,16 +21,8 @@ end
 def individual_word_counts(text)
   word_counts = {}
 
-  unique_words(text).each do |keyword|
-    count = 0
-
-    normalize(text).each do |word|
-      if word == keyword
-        count += 1
-      end
-    end
-
-    word_counts[keyword] = count
+  unique_words(text).each do |word|
+    word_counts[word] = normalize(text).count(word)
   end
 
   word_counts
