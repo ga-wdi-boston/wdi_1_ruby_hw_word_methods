@@ -16,9 +16,14 @@ end
 
 
 # Method that counts how many words are in a string- option to count unique words instead of total words
-def counts(string)
-  # count how many words there are in a string
+def counts(string, uniq_op = false)
   str_count = string.split.count
+  if uniq_op == true
+    unique(string).count
+  else
+    str_count
+  end
+
 
   # option to count unque words instead of total words- USE unique method you created above.
 
