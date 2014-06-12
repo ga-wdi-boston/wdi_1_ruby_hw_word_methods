@@ -1,13 +1,7 @@
-#Method that splits a string (e.g. the text from `sample.txt`)
-#into an array of normalized words. "Normalized"
-#here means that the words should be all lowercase
-#and scrubbed of any punctuation such as periods or parentheses.
-
 # This will give you the contents of the `sample.txt` file as one big string
 
 sample_text = File.read('sample.txt')
 
-#TEXT = sample_text
 
 def normalize(text)
   text.downcase.gsub("'","").gsub(/[^a-z ]/, ' ').split
@@ -25,11 +19,43 @@ end
 def word_count(text, unique: false)
   unique ? unique_words(text).count : normalize(text).count
 end
-puts word_count(sample_text, unique: true)
+#puts word_count(sample_text, unique: true)
+
+def word_frequency(text)
+  norm_array = normalize(text).to_a
+  freq = { }
+  norm_array.each_with_object(Hash.new(0)){|key,hash| hash[key] += 1}
+end
+#puts word_frequency(sample_text)
+
+def threshold(text, threshold: false)
+ thresh = (word_frequency(text).select { |k, v| v > 4})
+  threshold ? thresh.reject {|k,v| k.length < 6} : thresh.reject {|k,v| k.length < 4}
+end
+puts threshold(sample_text, threshold: true)
+
+  #threshold_array = (normalize(text).to_a
+  #thresh = { }
+  #threshold_array.each_with_object(Hash.new(0)){|key,hash| hash[key.length(key)] += 1}
+
+  #thresh = (word_frequency(text).select { |k, v| k.length >3, v > 15})
+  #thresh = (word_frequency(text).select { |k, v| puts k if v ==hash.values.max})
+  #thresh = (word_frequency(text).select { |k, v| puts k if v ==hash.values.max && hash.values.length >3})
+  #if
+    #normalize(text).length > 3
+
+  #threshold ? v.length >3: normalize(text).count
+  #threshold ? word_frequency(text).length >3 : normalize(text).count
+#end
 
 
-#Method that takes a string and returns a hash
-#where the keys are normalized words,
-#and the values are integers representing how many times that word
-#occurs in the string.
+#.inspect
+
+  #Hash.new { |hash, key| hash[key] =  [unique_words(sample_text)]unique_words(sample_text).count }
+  #normalize(text).count
+  #frequency = {normalize(text).to_s => normalize(text).count}
+  #normalize(text) = normalize(text).count #key (need to separate)
+  #values = .count
+
+#puts unique_words(sample_text).split
 
