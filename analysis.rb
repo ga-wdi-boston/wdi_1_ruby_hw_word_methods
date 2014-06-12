@@ -1,3 +1,4 @@
+require "pry"
 # This will give you the contents of the `sample.txt` file as one big string
 sample_text = File.read('sample.txt')
 
@@ -19,8 +20,10 @@ def count_words_occurence(text)
   normalize(text).each_with_object(Hash.new(0)) { |text,counts| counts[text] += 1 }
 end
 
-def most_common_words(text)
-  count_words_occurence(text).max_by{|k,v| v}
+def most_common_words(text, value: 3)
+  common_words = {}
+  common_words = count_words_occurence(text).select{|k,v| k.length > value}
+  common_words.max_by {|k,v| v}
 end
 
 puts normalize(sample_text).inspect
@@ -32,7 +35,4 @@ puts count_words(sample_text, type: 'unique')
 
 puts count_words_occurence(sample_text)
 
-puts most_common_words(sample_text)
-
-puts
-
+puts most_common_words(sample_text, value: 7)
