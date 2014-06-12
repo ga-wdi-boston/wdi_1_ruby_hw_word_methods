@@ -9,6 +9,11 @@ end
 puts split_normalise(sample_text)
 
 # method to return unique words
+def unique_words(text)
+  split_normalise(text).uniq
+end
+
+puts unique_words(sample_text)
 
 # method for text count
 
