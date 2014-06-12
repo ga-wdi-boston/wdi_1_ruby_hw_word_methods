@@ -36,8 +36,9 @@ end
 # normalized words, and the values are integers representing how many times
 # that word occurs in the string.
 def word_frequency(str)
+  arr = split_and_normalize(str)
   result = {}
-  split_and_normalize(str).uniq.each { |key| result[key.to_sym] = arr.count(key) }
+  arr.uniq.each { |key| result[key.to_sym] = arr.count(key) }
   result
 end
 
@@ -80,4 +81,4 @@ def longest_unique_words(str)
 end
 
 sample_text = File.read('sample.txt')
-puts longest_unique_words(sample_text)
+puts word_frequency(sample_text)
