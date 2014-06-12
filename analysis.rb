@@ -26,12 +26,6 @@ def most_common_words(text, value: 3)
   common_words.max_by {|k,v| v}
 end
 
-def longest_words(text)
-  common_words = {}
-  common_words = count_words_occurence(text).select{|k,v| k.length > value}
-  common_words.max_by {|k,v| v}
-end
-
 puts normalize(sample_text).inspect
 
 puts unique_words(sample_text).inspect
@@ -41,4 +35,5 @@ puts count_words(sample_text, type: 'unique')
 
 puts count_words_occurence(sample_text)
 
-puts most_common_words(sample_text, value: 7)
+#puts most_common_words(sample_text, value: 8)
+puts most_common_words(sample_text)
