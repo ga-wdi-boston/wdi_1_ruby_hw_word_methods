@@ -28,4 +28,10 @@ def word_freq(str)
 end
 
 
-puts word_freq(sample_text)
+def most_common_word_over_length_threshold (str, thresh: 3)
+  frequencies = word_freq(str).delete_if {|k,v| k.length <= thresh}
+
+  frequencies.key(frequencies.values.max)
+end
+
+puts most_common_word_over_length_threshold(sample_text)
