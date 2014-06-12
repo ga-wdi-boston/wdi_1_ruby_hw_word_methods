@@ -22,11 +22,7 @@ end
 # 3. Method that counts how many words are in a string. This method should also provide the *option* to count unique words instead of total words.
 
 def word_count_total(text, unique: false)
-  if unique == true
-    unique_words(text).length
-  else
-    normalize(text).length
-  end
+  unique ? unique_words(text).length : normalize(text).length
 end
 
 # 4. Method that takes a string and returns a hash where the keys are normalized words, and the values are integers representing how many times that word occurs in the string.
@@ -44,12 +40,10 @@ end
 # The threshold should be optional, and default to 3 characters
 
 def most_common(text, too_short: 3)
-  long_words = each_word_count(text).select do |word, count|
-    word.length > too_short
-  end
+  long_enough = each_word_count(text).delete_if{ |word, count| word.length <= too_short }
 
-  long_words.select do |word, count|
-    count == long_words.values.max
+  long_enough.select do |word, count|
+    count == long_enough.values.max
   end
 end
 
