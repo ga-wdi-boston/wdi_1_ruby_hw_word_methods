@@ -37,11 +37,11 @@ end
 def unique_words_with_counts(text)
   words_set = unique_words(text)
   all_words = normalized_words(text)
-  counts = words_set.map{ |word| all_words.collect{ |string| string if
-    string == word}.compact.count}
+  counts = words_set.map{ |word| all_words.count(word) }
   Hash[words_set.zip(counts)]
 end
 
+puts unique_words_with_counts(sample_text)
 # Find most common word longer than an optional threshhold (default 3)
 #    - use hash to find most occurances
 #    - a tie defaults to whichever word appears first
