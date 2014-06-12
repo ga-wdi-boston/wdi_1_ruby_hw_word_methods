@@ -5,4 +5,8 @@ def normalize(str)
   str.gsub(/[^a-zA-Z\s]/, '').gsub(/\n/, ' ').downcase.split(' ')
 end
 
-puts normalize(sample_text)
+def all_unique_words(str)
+  normalize(str).uniq
+end
+
+puts all_unique_words(sample_text)
