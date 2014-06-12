@@ -22,7 +22,12 @@ end
 
 puts unique(test)
 
+#Method 3 counter - working for regular string of text - do not have option for unique
+def word_count(text)
+  normalized_text = normalize(text)
+  count = normalized_text.length
+end
 
-#Method 2
-#Call method 1 to remove all punctuation and capitalisation issues
-#Map all words to new array only if the array does not already contain that words
+puts word_count(test)
+
+
