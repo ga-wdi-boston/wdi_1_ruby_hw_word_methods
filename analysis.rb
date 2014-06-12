@@ -24,4 +24,12 @@ end
 
 words_set = unique_words(sample_text)
 
+def how_many_words(text, unique: false)
+  unique ?  unique_words(text).count : normalise_text(text).count
+end
+
+all_words = how_many_words(sample_text)
+unique_words = how_many_words(sample_text, unique: true)
+
+
 binding pry
