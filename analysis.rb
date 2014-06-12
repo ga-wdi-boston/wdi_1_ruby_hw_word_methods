@@ -28,13 +28,23 @@ def word_score(sample_text)
     word_score[v] +=1
   end
 
-  word_score.each do |k, v|
+  final_group = word_score.each do |k, v|
   end
 end
 
 #Method that finds the most common word in a string that is longer than a particular "length threshold". The threshold should be optional, and default to 3 characters (i.e. words of 3 characters or less will not be considered). It's up to you how to handle multiple words being "tied" for most common.
 def popular_long_words(sample_text)
-  word_score(sample_text).sort {|a,b| b[1]<=>a[1]}
+  popular_long_words = Hash.new()
+
+  clean_text(sample_text).each do |v|
+    popular_long_words[v].length
+  end
+
+  final_group = popular_long_words.each do |k, v|
+  end
+
+  #selects = word_score(sample_text).sort {|k,v| v[1]<=>k[1]}
+  #selects.drop_while.length < 3
 end
 
 
