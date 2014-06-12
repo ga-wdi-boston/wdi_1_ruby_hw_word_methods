@@ -18,7 +18,7 @@ puts unique_words(sample_text)
 # method for text count
 def word_count(text, unique: false)
   if unique == false
-    normalise(text).split.count
+    split_normalise(text).split.count
   else
     unique_words(text).count
   end
@@ -29,6 +29,14 @@ puts word_count(sample_text, unique: true)
 # method for frequency of words in a hash
 def word_freq(text)
   frequency = {}
+  unique_words(text).each do |word|
+    frequency[word] = 0
+  end
+  split_normalise(text).each do |word|
+    frequency[word] += 1
+  end
+  frequency
+end
 
 
 puts word_freq(sample_text)
