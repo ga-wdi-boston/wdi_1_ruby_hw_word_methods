@@ -34,6 +34,7 @@ end
 
 #Method that finds the most common word in a string that is longer than a particular "length threshold". The threshold should be optional, and default to 3 characters (i.e. words of 3 characters or less will not be considered). It's up to you how to handle multiple words being "tied" for most common.
 def popular_long_words(sample_text)
+  word_score(sample_text).sort {|a,b| b[1]<=>a[1]}
 end
 
 
@@ -61,4 +62,7 @@ puts
 puts word_score(sample_text)
 puts
 puts "---------------------------------------------------"
+puts "Popular Long Words"
+puts
+puts popular_long_words(sample_text)
 
