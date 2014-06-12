@@ -20,10 +20,6 @@ def count_words_occurence(text)
 end
 
 def most_common_words(text)
-  count_words_occurence(text)
-end
-
-def largest_hash_value(text)
   count_words_occurence(text).max_by{|k,v| v}
 end
 
@@ -38,6 +34,5 @@ puts count_words_occurence(sample_text)
 
 puts most_common_words(sample_text)
 
-print largest_hash_value(sample_text)
 puts
 
